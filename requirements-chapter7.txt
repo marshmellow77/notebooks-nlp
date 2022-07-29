@@ -10,3 +10,4 @@ torchaudio==0.8.1
 # transformers 4.6.1 which depends on huggingface-hub==0.0.8
 # and is incompatible with later versions of datasets
 datasets==1.11.0
+pymilvus==1.1.2
