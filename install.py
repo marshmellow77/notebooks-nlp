@@ -28,8 +28,13 @@ def install_requirements(
         raise Exception("😭 Failed to install base requirements")
     else:
         print("✅ Base requirements installed!")
+        
     print("⏳ Installing Git LFS ...")
-    process_lfs = subprocess.run(["apt", "install", "git-lfs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        process_lfs = subprocess.run(["apt", "install", "git-lfs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except:
+        process_lfs = subprocess.run(["yum", "install", "git-lfs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
+    
     if process_lfs.returncode == -1:
         raise Exception("😭 Failed to install Git LFS and soundfile")
     else:
